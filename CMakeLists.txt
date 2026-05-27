@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(halfonso-v2)
+project(halfonso_v2)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
