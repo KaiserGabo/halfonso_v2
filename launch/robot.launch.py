@@ -53,6 +53,15 @@ def generate_launch_description():
         description="If true, use ros2_control",
     )
 
+    params_declare = DeclareLaunchArgument(
+        'params_file',
+        default_value=os.path.join(package_dir, 'config', 'ydlidar.yaml'),
+        # You can change the .yaml file depending on your lidar,
+        # ydlidar.yaml is a copy of TminiPro.yaml in this project,
+        # see ydlidar_base.yaml for a basic format of the lidar parameters
+        description='Path to the ROS2 parameters file to use.'
+    )
+
     # declare_lidar_serial_port = DeclareLaunchArgument(
     #     'lidar_serial_port',
     #     default_value='/dev/ttyUSB1',
@@ -166,21 +175,41 @@ def generate_launch_description():
         )
     )
 
-    node_ydlidar_drive = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [
-                os.path.join(
-                    get_package_share_directory("ydlidar_ros2_driver"),
-                    "launch",
-                    "ydlidar_launch.py",
-                )
-            ]
-        ),
-        # launch_arguments={
-        #     'serial_port': lidar_serial_port,
-        #     'frame_id': 'lidar_frame'
-        #     }.items()
+    # node_ydlidar_drive = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         [
+    #             os.path.join(
+    #                 get_package_share_directory("ydlidar_ros2_driver"),
+    #                 "launch",
+    #                 "ydlidar_launch.py",
+    #             )
+    #         ]
+    #     ),
+    #     launch_arguments={
+    #         'serial_port': lidar_serial_port,
+    #         'frame_id': 'lidar_frame'
+    #         }.items()
+
+    # )
+
+    node_ydlidar_drive = LifecycleNode(
+        package='ydlidar_ros2_driver',
+        executable='ydlidar_ros2_driver_node',
+        name='ydlidar_ros2_driver_node',
+        namespace='/',
+        output='screen',
+        emulate_tty=True,
+        parameters=[parameter_file],
     )
+
+    tf2_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_pub_laser',
+        arguments=['0', '0', '0.02', '0', '0', '0', '1', 'base_link', 'laser_frame'],
+    )
+
+    
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -194,6 +223,7 @@ def generate_launch_description():
     ld.add_action(register_joint_state_broadcaster_spawner)
     ld.add_action(register_diff_drive_controller_spawner)
     ld.add_action(node_ydlidar_drive)
+    ld.add_action(tf2_node)
 
     ld.add_action(node_robot_state_publisher)
     ld.add_action(node_twist_mux)
