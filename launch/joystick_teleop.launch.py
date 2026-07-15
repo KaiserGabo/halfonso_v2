@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    package_name= 'halfonso'
+    package_name= 'halfonso_v2'
 
     # Declare the path to files
     joy_params_file = os.path.join(

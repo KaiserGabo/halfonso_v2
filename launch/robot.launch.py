@@ -34,12 +34,12 @@ def image_transport_republisher(transport, camera_topics):
 
 def generate_launch_description():
 
-    package_name = "halfonso"
+    package_name = "halfonso_v2"
     package_dir = get_package_share_directory(package_name)
 
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_ros2_control = LaunchConfiguration("use_ros2_control")
-    lidar_serial_port = LaunchConfiguration("lidar_serial_port")
+    # lidar_serial_port = LaunchConfiguration("lidar_serial_port")
 
     declare_use_sim_time = DeclareLaunchArgument(
         "use_sim_time",
@@ -176,10 +176,10 @@ def generate_launch_description():
                 )
             ]
         ),
-        launch_arguments={
-            'serial_port': lidar_serial_port,
-            'frame_id': 'lidar_frame'
-            }.items()
+        # launch_arguments={
+        #     'serial_port': lidar_serial_port,
+        #     'frame_id': 'lidar_frame'
+        #     }.items()
     )
 
     # Create the launch description and populate
@@ -193,6 +193,7 @@ def generate_launch_description():
     ld.add_action(register_node_ros2_control)
     ld.add_action(register_joint_state_broadcaster_spawner)
     ld.add_action(register_diff_drive_controller_spawner)
+    ld.add_action(node_ydlidar_drive)
 
     ld.add_action(node_robot_state_publisher)
     ld.add_action(node_twist_mux)

@@ -59,7 +59,7 @@
             <plugin filename="gz_ros2_control-system"
                 name="gz_ros2_control::GazeboSimROS2ControlPlugin">
                 <parameters>
-                    $(find halfonso)/config/controller_gz_sim.yaml
+                    $(find halfonso_v2)/config/controller_gz_sim.yaml
                 </parameters>
             </plugin>
         </gazebo>

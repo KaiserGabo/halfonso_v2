@@ -15,7 +15,7 @@ slam_toolbox:
     mode: localization
 
     # if you'd like to start localizing on bringup in a map and pose
-    map_file_name: ./src/halfonso/maps/sample_map_serial
+    map_file_name: ./src/halfonso_v2/maps/sample_map_serial
     #map_start_pose: [5.0, 1.0, 0.0]
 
     debug_logging: false
