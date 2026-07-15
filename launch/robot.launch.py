@@ -36,6 +36,7 @@ def generate_launch_description():
 
     package_name = "halfonso_v2"
     package_dir = get_package_share_directory(package_name)
+    lidar_params = LaunchConfiguration('params_file')
 
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_ros2_control = LaunchConfiguration("use_ros2_control")
@@ -199,7 +200,7 @@ def generate_launch_description():
         namespace='/',
         output='screen',
         emulate_tty=True,
-        parameters=[parameter_file],
+        parameters=[lidar_params],
     )
 
     tf2_node = Node(
@@ -222,6 +223,7 @@ def generate_launch_description():
     ld.add_action(register_node_ros2_control)
     ld.add_action(register_joint_state_broadcaster_spawner)
     ld.add_action(register_diff_drive_controller_spawner)
+    ld.add_action(params_declare)
     ld.add_action(node_ydlidar_drive)
     ld.add_action(tf2_node)
 
