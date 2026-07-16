@@ -8,18 +8,16 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, EnvironmentVariable
 from launch_ros.actions import Node
 
+
 def generate_launch_description():
-    
+
     nav2_bringup_dir = get_package_share_directory('nav2_bringup')
-    package_name = "halfonso_v2"
-    package_dir = get_package_share_directory(package_name)
 
     declare_use_sim_time = DeclareLaunchArgument(
         'use_sim_time',
         default_value='false',  # Defaults to True as requested
         description='Nav2 configuration for real time application'
     )
-
 
     use_sim_time = LaunchConfiguration('use_sim_time')
 
@@ -32,27 +30,6 @@ def generate_launch_description():
         }.items()
     )
 
-    gmapping_launch = Node(
-        package='slam_gmapping',
-        executable='slam_gmapping',
-        output='screen',
-        parameters=[os.path.join( package_dir, "config", "slam_gmapping.yaml")]
-    )
-
-    b_link_2_b_laser_tf = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='base_link_to_base_laser',
-        arguments=['-0.0046412', '0', '0.094079', '0', '0', '0', 'base_link', 'laser_frame']
-    )
-
-    b_foot_2_b_link = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='base_link_foot',
-        arguments=['-0.0', '0', '0.0', '0', '0', '0', 'base_footprint', 'base_link']
-    )
-
     explorer_node = Node(
         package='custom_explorer',
         executable='explorer',
@@ -63,14 +40,10 @@ def generate_launch_description():
         }]
     )
 
-
     ld = LaunchDescription()
 
     ld.add_action(declare_use_sim_time)
     ld.add_action(include_navigation)
-    ld.add_action(gmapping_launch)
-    ld.add_action(b_link_2_b_laser_tf)
-    ld.add_action(b_foot_2_b_link)
     ld.add_action(explorer_node)
 
     return ld
