@@ -36,8 +36,7 @@ def generate_launch_description():
         package='slam_gmapping',
         executable='slam_gmapping',
         output='screen',
-        parameters=[os.path.join(get_package_share_directory(
-            package_dir), "config", "slam_gmapping.yaml")]
+        parameters=[os.path.join( package_dir, "config", "slam_gmapping.yaml")]
     ),
 
     b_link_2_b_laser_tf = Node(
