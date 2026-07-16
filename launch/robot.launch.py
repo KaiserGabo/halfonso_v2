@@ -223,7 +223,7 @@ def generate_launch_description():
     ld.add_action(register_node_ros2_control)
     ld.add_action(register_joint_state_broadcaster_spawner)
     ld.add_action(register_diff_drive_controller_spawner)
-    ld.add_action(params_declare)
+    ld.add_action(params)
     ld.add_action(node_ydlidar_drive)
     ld.add_action(tf2_node)
 
