@@ -37,10 +37,8 @@ def generate_launch_description():
     package_name = "halfonso_v2"
     package_dir = get_package_share_directory(package_name)
     lidar_params = LaunchConfiguration('params_file')
-
     use_sim_time = LaunchConfiguration("use_sim_time")
     use_ros2_control = LaunchConfiguration("use_ros2_control")
-    # lidar_serial_port = LaunchConfiguration("lidar_serial_port")
 
     declare_use_sim_time = DeclareLaunchArgument(
         "use_sim_time",
@@ -63,18 +61,10 @@ def generate_launch_description():
         description='Path to the ROS2 parameters file to use.'
     )
 
-    # declare_lidar_serial_port = DeclareLaunchArgument(
-    #     'lidar_serial_port',
-    #     default_value='/dev/ttyUSB1',
-    #     description='Specifying usb port to connected lidar'
-    # )
-
     # Declare the path to files
     robot_description_xacro_file = os.path.join(
         package_dir, "description", "robot.urdf.xacro"
     )
-
-    rviz_config_file_dir = os.path.join(package_dir, "config", "halfonso_config.rviz")
 
     robot_controllers_file_dir = os.path.join(package_dir, "config", "controller.yaml")
 
@@ -176,22 +166,6 @@ def generate_launch_description():
         )
     )
 
-    # node_ydlidar_drive = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(
-    #         [
-    #             os.path.join(
-    #                 get_package_share_directory("ydlidar_ros2_driver"),
-    #                 "launch",
-    #                 "ydlidar_launch.py",
-    #             )
-    #         ]
-    #     ),
-    #     launch_arguments={
-    #         'serial_port': lidar_serial_port,
-    #         'frame_id': 'lidar_frame'
-    #         }.items()
-
-    # )
 
     node_ydlidar_drive = LifecycleNode(
         package='ydlidar_ros2_driver',
@@ -218,21 +192,18 @@ def generate_launch_description():
     # Add the nodes to the launch description
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_use_ros2_control)
-    # ld.add_action(declare_lidar_serial_port)
-
     ld.add_action(register_node_ros2_control)
     ld.add_action(register_joint_state_broadcaster_spawner)
     ld.add_action(register_diff_drive_controller_spawner)
-    ld.add_action(params)
+    ld.add_action(params_declare)
     ld.add_action(node_ydlidar_drive)
     ld.add_action(tf2_node)
-
     ld.add_action(node_robot_state_publisher)
     ld.add_action(node_twist_mux)
     ld.add_action(node_twist_stamper)
     # for node_republisher in node_image_republishers:
     #     ld.add_action(node_republisher)
-    # ld.add_action(node_ydlidar_drive)
+
 
     # Generate the launch description
     return ld
