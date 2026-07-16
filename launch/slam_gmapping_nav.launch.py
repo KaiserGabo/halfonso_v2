@@ -37,21 +37,21 @@ def generate_launch_description():
         executable='slam_gmapping',
         output='screen',
         parameters=[os.path.join( package_dir, "config", "slam_gmapping.yaml")]
-    ),
+    )
 
     b_link_2_b_laser_tf = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='base_link_to_base_laser',
         arguments=['-0.0046412', '0', '0.094079', '0', '0', '0', 'base_link', 'laser_frame']
-    ),
+    )
 
     b_foot_2_b_link = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='base_link_foot',
         arguments=['-0.0', '0', '0.0', '0', '0', '0', 'base_footprint', 'base_link']
-    ),
+    )
 
     explorer_node = Node(
         package='custom_explorer',
