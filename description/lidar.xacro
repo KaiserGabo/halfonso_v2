@@ -32,7 +32,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/laser_frame.stl" />
+                <mesh filename="package://halfonso_v2/meshes/laser_frame.stl" />
             </geometry>
             <material name="">
                 <color
@@ -42,7 +42,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/laser_frame.stl" />
+                <mesh filename="package://halfonso_v2/meshes/laser_frame.stl" />
             </geometry>
         </collision>
     </link>
