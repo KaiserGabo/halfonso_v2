@@ -78,7 +78,7 @@
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry> -->
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/base_footprint.stl" />
+                <mesh filename="package://halfonso_v2/meshes/base_footprint.stl" />
             </geometry>
             <!-- <material name="orange"/> -->
             <material
@@ -97,7 +97,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/base_footprint.stl" />
+                <mesh filename="package://halfonso_v2/meshes/base_footprint.stl" />
             </geometry>
         </collision>
         <!-- <xacro:inertial_box mass="0.42011" x="${chassis_length}" y="${chassis_width}"
@@ -137,7 +137,7 @@
                 <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry> -->
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/base_link.stl" />
+                <mesh filename="package://halfonso_v2/meshes/base_link.stl" />
             </geometry>
             <!-- <material name="orange"/> -->
             <material
@@ -157,7 +157,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/base_link.stl" />
+                <mesh filename="package://halfonso_v2/meshes/base_link.stl" />
             </geometry>
         </collision>
         <!-- <xacro:inertial_box mass="0.42011" x="${chassis_length}" y="${chassis_width}"
@@ -199,7 +199,7 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <!-- <cylinder radius="${wheel_radius}" length="${wheel_thickness}"/> -->
-                <mesh filename="file://$(find halfonso_v2)/meshes/left_wheel.stl" />
+                <mesh filename="package://halfonso_v2/meshes/left_wheel.stl" />
             </geometry>
             <!-- <material name="blue"/> -->
             <material name="">
@@ -210,7 +210,7 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <!-- <sphere radius="${wheel_radius}"/> -->
-                <mesh filename="file://$(find halfonso_v2)/meshes/left_wheel.stl" />
+                <mesh filename="package://halfonso_v2/meshes/left_wheel.stl" />
             </geometry>
         </collision>
         <!-- <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}"
@@ -251,7 +251,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/right_wheel.stl" />
+                <mesh filename="package://halfonso_v2/meshes/right_wheel.stl" />
             </geometry>
             <!-- <material name="blue"/> -->
             <material name="">
@@ -261,7 +261,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="file://$(find halfonso_v2)/meshes/right_wheel.stl" />
+                <mesh filename="package://halfonso_v2/meshes/right_wheel.stl" />
             </geometry>
         </collision>
         <!-- <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}"
