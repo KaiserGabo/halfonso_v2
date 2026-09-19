@@ -1,7 +1,5 @@
 import os
-
 from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
 from launch.actions import (
     RegisterEventHandler,
@@ -15,22 +13,6 @@ from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import LaunchConfiguration, Command
 from launch_ros.actions import LifecycleNode
-
-# Image Transport Republishers
-# terminal command example: ros2 run image_transport republish raw compressed --ros-args -r in:=/camera/image_raw -r out/compressed:=/camera/image_raw/compressed
-def image_transport_republisher(transport, camera_topics):
-    base_topic = camera_topics.split("/")[-1]
-
-    return Node(
-        package="image_transport",
-        executable="republish",
-        name=f"image_transport_republish_{transport}_{base_topic}",
-        arguments=["raw", transport],
-        remappings=[
-            ("in", f"/camera/{camera_topics}"),
-            (f"out/{transport}", f"/camera/{camera_topics}/{transport}"),
-        ],
-    )
 
 
 def generate_launch_description():
@@ -185,8 +167,6 @@ def generate_launch_description():
         arguments=['0', '0', '0.02', '0', '0', '0', '1', 'base_link', 'laser_frame'],
     )
 
-    
-
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -202,9 +182,6 @@ def generate_launch_description():
     ld.add_action(node_robot_state_publisher)
     ld.add_action(node_twist_mux)
     ld.add_action(node_twist_stamper)
-    # for node_republisher in node_image_republishers:
-    #     ld.add_action(node_republisher)
-
 
     # Generate the launch description
     return ld
