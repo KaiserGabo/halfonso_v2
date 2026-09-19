@@ -1,11 +1,11 @@
 ### List of Content:
 
-- [Introduction](https://github.com/KaiserGabo/halfonso_v2/blob/6558e4d5b8d42392bfdf5a7e03758e528c2fcc80/Package_Installation_Instruction.md#introduction)
-- [Install ROS 2 Packages](https://github.com/KaiserGabo/halfonso_v2/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#install-ros-2-package)
-- [Install and Flash Microcontroller Driver code](https://github.com/KaiserGabo/halfonso_v2/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#install-and-flash-microcontroller-driver-code)
-- [Extra Notes](https://github.com/KaiserGabo/halfonso_v2/blob/6558e4d5b8d42392bfdf5a7e03758e528c2fcc80/Package_Installation_Instruction.md#extra-notes)
+- [1. Introduction](#introduction)
+- [2. Install ROS 2 Packages](#install-ros-2-package)
+- [3. Install and Flash Microcontroller Driver code](#install-and-flash-microcontroller-driver-code)
+- [4. Extra Notes](#extra-notes)
 
-## Introduction
+# Introduction
 
 There are 2 ways to install ROS2 package, either via binary installation or build from source. Most of the stable-released standard ROS2 package can be installed via binary, while building the package from source allows more flexibility in modifying the package(s) content, or to install additional third-party package(s).
 
@@ -39,15 +39,15 @@ The directory for the instruction to install required packages are listed below:
 <!-- ### Third-party Packages Repository -->
 
 <!-- Among the above listed packages, the following are third-party packages: -->
-- [ros2_control](https://github.com/KaiserGabo/halfonso_v2/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#ros2_control)
-- [nav2 stack](https://github.com/KaiserGabo/halfonso_v2/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#nav2)
-- [slam_gmapping](https://github.com/KaiserGabo/slam_gmapping.git)
-- [custom_explorer](https://github.com/KaiserGabo/Autonomous-Explorer-and-Mapper-ros2-nav2)
-- [twist_mux](https://github.com/KaiserGabo/halfonso_v2/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#twist_mux)
-- [twist_stamper](https://github.com/joshnewans/twist_stamper.git)
-- [diffdrive_arduino](https://github.com/KaiserGabo/ros_arduino_bridge) (forked from [here](https://github.com/YJ0528/diffdrive_arduino))
-- [serial](https://github.com/joshnewans/serial.git)
-- [ydlidar_ros2_driver](https://github.com/KaiserGabo/ydlidar_ros2_driver)
+- [ros2_control](#ros2_control) 
+- [nav2 stack](#nav2)
+- [slam_gmapping](#slam_gmapping) ([repo](https://github.com/KaiserGabo/slam_gmapping_ros2.git))
+- [custom_explorer](#custom_explorer) ([repo](https://github.com/KaiserGabo/Autonomous-Explorer-and-Mapper-ros2-nav2))
+- [twist_mux](#twist_mux)
+- [twist_stamper](#twist_stamper) ([repo](https://github.com/joshnewans/twist_stamper.git))
+- [diffdrive_arduino](#diffdrive_arduino) ([repo](https://github.com/KaiserGabo/diffdrive_arduino))  (forked from [here](https://github.com/YJ0528/diffdrive_arduino))
+- [serial](#serial) ([repo](https://github.com/joshnewans/serial.git)) 
+- [ydlidar_ros2_driver](#ydlidar_ros2_driver) ([repo](https://github.com/KaiserGabo/ydlidar_ros2_driver)) 
 
 <!-- ## ros_gz
 
@@ -259,10 +259,12 @@ The arduino driver code repository can be found at here: [ros_arduino_bridge](ht
 ### A. Install Arduino IDE
 
 1. Make sure you have arduino installed in the machine, otherwise see [Arduino IDE 1 Installation (Linux)](https://docs.arduino.cc/software/ide-v1/tutorials/Linux/).
-<!-- 2.	Open the Arduino IDE, install the ESP32 add-on in Arduino IDE, see [Installing the ESP32 Board in Arduino IDE (Windows, Mac OS X, Linux)](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
-2. In the Arduino IDE, install the following libraries via Tools -> Manage Libraries...
+
+#### Using ESP32 with Cytron MDD3A (optional)
+- Open the Arduino IDE, install the ESP32 add-on in Arduino IDE, see [Installing the ESP32 Board in Arduino IDE (Windows, Mac OS X, Linux)](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
+- In the Arduino IDE, install the following libraries via Tools -> Manage Libraries...
    - ESP32Encoder version 0.11.7, repository: https://github.com/madhephaestus/ESP32Encoder.git
-   - Cytron Motor Drivers Library version 1.0.1, repository: https://github.com/CytronTechnologies/CytronMotorDriver -->
+   - Cytron Motor Drivers Library version 1.0.1, repository: https://github.com/CytronTechnologies/CytronMotorDriver
 
 ### B. Flashing the Driver code
 
@@ -279,14 +281,16 @@ The arduino driver code repository can be found at here: [ros_arduino_bridge](ht
 
         ls -l /dev/ttyUSB*
 
-5.  If the Arduino Nano is plugged into the serial port but the it is not recognized by the IDE, see [RPI5: Add USB Access for Raspberry Pi](https://github.com/KaiserGabo/halfonso/blob/main/Tips_and_Troubleshooting.md#rpi5-add-usb-access-for-raspberry-pi).
+<!-- 5.  If the Arduino Nano is plugged into the serial port but the it is not recognized by the IDE, see [RPI5: Add USB Access for Raspberry Pi](https://github.com/KaiserGabo/halfonso/blob/main/Tips_and_Troubleshooting.md#rpi5-add-usb-access-for-raspberry-pi). -->
 
 
 <!-- 6.  Run python miniterm with echo and set serial port, and baud rate as following (assume serial port= /dev/ttyUSB0):
 
         python3 -m serial.tools.miniterm -e /dev/ttyUSB0 576000 -->
 
-### Extra notes
+<br>
+
+# Extra notes
 
 - **ESP32 & Cytron MDD3A Support:** Compatibility for the ESP32 microcontroller and Cytron MDD3A motor driver was contributed by [YJ0528](https://github.com/YJ0528/ros_arduino_bridge.git). This project utilizes the default configuration from [Josh Newans ](https://github.com/joshnewans/ros_arduino_bridge.git)' repository. If you are using these components, follow the Microcontroller Driver Setup Instructions.
 - **3.3V Logic Level Warning (L298N):** If you are using a 3.3V logic microcontroller (e.g., ESP32, Raspberry Pi Pico) with an L298N motor driver, a logic level shifter is strongly recommended. Although the L298N may respond to 3.3V signals during basic testing, it requires 5V logic inputs to operate reliably under normal conditions.
