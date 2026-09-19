@@ -1,8 +1,8 @@
 ### List of Content:
 
 - [Introduction](https://github.com/KaiserGabo/halfonso_v2/blob/6558e4d5b8d42392bfdf5a7e03758e528c2fcc80/Package_Installation_Instruction.md#introduction)
-- [Install ROS 2 Packages](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#install-ros-2-package)
-- [Install and Flash Microcontroller Driver code](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#install-and-flash-microcontroller-driver-code)
+- [Install ROS 2 Packages](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#install-ros-2-package)
+- [Install and Flash Microcontroller Driver code](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#install-and-flash-microcontroller-driver-code)
 - [Extra Notes](https://github.com/KaiserGabo/halfonso_v2/blob/6558e4d5b8d42392bfdf5a7e03758e528c2fcc80/Package_Installation_Instruction.md#extra-notes)
 
 ## Introduction
@@ -22,28 +22,28 @@ The directory for the instruction to install required packages are listed below:
 
 <!-- **For simulation only:**
 
-- [ros_gz](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#ros_gz)
-- [ros2_control](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#ros2_control)
-- [nav2 stack](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#nav2c)
-- [slam_gmapping](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#slam_gmapping)
-- [custom_explorer](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#custom_explorer)
-- [twist_mux](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#twist_mux)
-- [twist_stamper](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#twist_stamper) -->
+- [ros_gz](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#ros_gz)
+- [ros2_control](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#ros2_control)
+- [nav2 stack](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#nav2c)
+- [slam_gmapping](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#slam_gmapping)
+- [custom_explorer](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#custom_explorer)
+- [twist_mux](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#twist_mux)
+- [twist_stamper](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#twist_stamper) -->
 
 <!-- **For driver and hardware interface (in addition to the file listed for simulation, except `ros_gz`):**
 
-- [diffdrive_arduino](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#diffdrive_arduino)
-- [serial](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#twist_stamper)
-- [ydlidar_ros2_driver](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#ydlidar_ros2_driver) -->
+- [diffdrive_arduino](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#diffdrive_arduino)
+- [serial](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#twist_stamper)
+- [ydlidar_ros2_driver](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#ydlidar_ros2_driver) -->
 
 <!-- ### Third-party Packages Repository -->
 
 <!-- Among the above listed packages, the following are third-party packages: -->
-- [ros2_control](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#ros2_control)
-- [nav2 stack](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#nav2)
+- [ros2_control](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#ros2_control)
+- [nav2 stack](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#nav2)
 - [slam_gmapping](https://github.com/KaiserGabo/slam_gmapping.git)
 - [custom_explorer](https://github.com/KaiserGabo/Autonomous-Explorer-and-Mapper-ros2-nav2)
-- [twist_mux](https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#twist_mux)
+- [twist_mux](https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#twist_mux)
 - [twist_stamper](https://github.com/joshnewans/twist_stamper.git)
 - [diffdrive_arduino](https://github.com/KaiserGabo/ros_arduino_bridge) (forked from [here](https://github.com/YJ0528/diffdrive_arduino))
 - [serial](https://github.com/joshnewans/serial.git)
@@ -165,7 +165,7 @@ Alternatively, if user wish to build from source:
 
         https://github.com/KaiserGabo/twist_mux.git
 
-    - Alternatively, user can still convert unstamped cmd_vel to stamped using [twist_stamper](https://https://github.com/KaiserGabo/halfonso/blob/main/Package_Installation_Instruction.md#twist_stamper).
+    - Alternatively, user can still convert unstamped cmd_vel to stamped using [twist_stamper](https://https://github.com/KaiserGabo/halfonso_v1/blob/73d7fda2b1881797845e8b4fddb37570d108c938/Package_Installation_Instruction.md#ros2_control#twist_stamper).
 
 3.  Build the package:
 
