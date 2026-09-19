@@ -77,13 +77,6 @@ def generate_launch_description():
         parameters=[params],
     )
 
-    # Image Transport Republishers Node
-    # camera = 'image_raw'
-    # depth_camera = 'depth/image_raw'
-    # image_transports = ['compressed','compressedDepth', 'theora', 'zstd' ]
-    # node_image_republishers = [image_transport_republisher(transport, depth_camera)
-    #                       for transport in image_transports]
-
     # controller spawn
     node_ros2_control = Node(
         package="controller_manager",
